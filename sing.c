@@ -3,13 +3,30 @@
 #define PORT_T2 0x42
 #define CTRL_T 0x43
 #define PORT_PB 0x61
-#define INIT_1 0x11ca
-#define INIT_2 0xfda
-#define INIT_3 0xe1f
-#define INIT_4 0xd5a
-#define INIT_5 0xbe3
-#define INIT_6 0xa97
-#define INIT_7 0x96f
+
+#define INIT_1L 0x11ca
+#define INIT_2L 0xfda
+#define INIT_3L 0xe1f
+#define INIT_4L 0xd5a
+#define INIT_5L 0xbe3
+#define INIT_6L 0xa97
+#define INIT_7L 0x96f
+
+#define INIT_1 0x8e9
+#define INIT_2 0x7f0
+#define INIT_3 0x712
+#define INIT_4 0x6ad
+#define INIT_5 0x5f1
+#define INIT_6 0x54b
+#define INIT_7 0x4b7
+
+#define INIT_1H 0x474
+#define INIT_2H 0x3f7
+#define INIT_3H 0x389
+#define INIT_4H 0x356
+#define INIT_5H 0x2f8
+#define INIT_6H 0x2a5
+#define INIT_7H 0x25b
 void sing(unsigned int frq,unsigned int ms)
 {
 	unsigned char value;
@@ -29,19 +46,506 @@ void sing(unsigned int frq,unsigned int ms)
 }
 void main()
 {
-	int i=0;
-	int song[200]={ 3,2,3,2,3,5,5,5,0,0,0,5,1,2,2,1,1,0,0,0,1,
-					1,2,3,1,1,0,6,1,2,3,1,1,0,6,2,3,3,0,0,0,0,0,5,
-					3,2,3,2,3,5,5,5,0,0,0,5,1,2,2,1,1,0,0,0,1,
-					2,2,3,1,1,0,6,2,2,3,1,1,0,6,5,3,3,3,5,5,0,5,3,2,
-					1,1,1,1,6,5,5,6,6,6,1,2,3,5,5,5,1,2,2,0,1,0,
-					0,1,1,1,1,6,5,5,6,6,6,1,2,3,5,5,5,3,2,2,0,3,2,1,
-					1,1,1,1,6,5,5,6,6,6,1,1,2,3,5,5,5,1,2,2,0,0,2,3,1,
-					1,1,1,1,6,5,6,6,6,1,2,3,5,5,5,3,2,2,0,0,0};
-	int Tone[7]={INIT_1,INIT_2,INIT_3,INIT_4,INIT_5,INIT_6,INIT_7};
-	for(i=0;i<180;i++)
-		if(song[i]==0)
-			delay(50);
-		else
-			sing(Tone[song[i]-1],250);	
+	sing(INIT_3,300);
+	sing(INIT_2,300);
+	sing(INIT_3,300);
+	sing(INIT_2,300);
+	sing(INIT_3,300);
+	sing(INIT_5,300);
+	sing(INIT_5,500);
+	
+	sing(INIT_5,500);
+	sing(INIT_5L,300);
+	
+	sing(INIT_1,400);
+	sing(INIT_2,300);
+	sing(INIT_2,500);
+	sing(INIT_1,300);
+	
+	sing(INIT_1,500);
+	sing(INIT_1,300);
+	
+	sing(INIT_1,300);
+	sing(INIT_2,300);
+	sing(INIT_3,300);
+	sing(INIT_1,300);
+	sing(INIT_1,500);
+	sing(INIT_6L,300);
+	
+	sing(INIT_1,300);
+	sing(INIT_2,300);
+	sing(INIT_3,300);
+	sing(INIT_1,300);
+	sing(INIT_1,500);
+	sing(INIT_6L,300);
+	
+	sing(INIT_2,900);
+	sing(INIT_3,300);
+	sing(INIT_3,900);
+	
+	sing(INIT_5L,300);
+	
+	sing(INIT_3,300);
+	sing(INIT_2,300);
+	sing(INIT_3,300);
+	sing(INIT_2,300);
+	sing(INIT_3,300);
+	sing(INIT_5,300);
+	sing(INIT_5,500);
+	
+	sing(INIT_5,500);
+	sing(INIT_5L,300);
+	
+	sing(INIT_1,400);
+	sing(INIT_2,300);
+	sing(INIT_2,500);
+	sing(INIT_1,300);
+	
+	sing(INIT_1,500);
+	sing(INIT_1,300);
+	
+	sing(INIT_1,300);
+	sing(INIT_2,300);
+	sing(INIT_3,300);
+	sing(INIT_1,300);
+	sing(INIT_1,500);
+	sing(INIT_6L,300);
+	
+	sing(INIT_2,300);
+	sing(INIT_2,300);
+	sing(INIT_3,300);
+	sing(INIT_1,300);
+	sing(INIT_1,500);
+	sing(INIT_6L,300);
+	
+	sing(INIT_5,500);
+	sing(INIT_3,300);
+	sing(INIT_3,500);
+	sing(INIT_3,300);
+	sing(INIT_4,300);
+	
+	sing(INIT_5,900);
+	sing(INIT_5,300);
+	sing(INIT_3H,300);
+	sing(INIT_2H,500);
+	
+	sing(INIT_1H,500);
+	sing(INIT_1H,500);
+	sing(INIT_1H,300);
+	sing(INIT_1H,300);
+	sing(INIT_6,300);
+	sing(INIT_5,300);
+	
+	sing(INIT_5H,300);
+	sing(INIT_6H,500);
+	sing(INIT_6H,300);
+	sing(INIT_6H,500);
+	sing(INIT_1H,300);
+	sing(INIT_2H,300);
+	
+	sing(INIT_3H,300);
+	sing(INIT_5H,500);
+	sing(INIT_5H,300);
+	sing(INIT_5H,300);
+	sing(INIT_5H,300);
+	sing(INIT_1H,500);
+	sing(INIT_2H,300);
+	
+	sing(INIT_2H,500);
+	sing(INIT_1H,500);
+	
+	sing(INIT_1H,500);
+	sing(INIT_1H,500);
+	sing(INIT_1H,300);
+	sing(INIT_1H,300);
+	sing(INIT_6,300);
+	sing(INIT_5,300);
+	
+	sing(INIT_5H,300);
+	sing(INIT_6H,500);
+	sing(INIT_6H,300);
+	sing(INIT_6H,500);
+	sing(INIT_1H,300);
+	sing(INIT_2H,300);
+	
+	sing(INIT_3H,300);
+	sing(INIT_5H,500);
+	sing(INIT_5H,300);
+	sing(INIT_5H,300);
+	sing(INIT_5H,300);
+	sing(INIT_3H,500);
+	sing(INIT_2H,300);
+	
+	sing(INIT_2H,900);
+	sing(INIT_3H,300);
+	sing(INIT_2H,500);
+	sing(INIT_1H,300);
+	
+	sing(INIT_1H,500);
+	sing(INIT_1H,500);
+	sing(INIT_1H,300);
+	sing(INIT_1H,300);
+	sing(INIT_6,300);
+	sing(INIT_5,300);
+	
+	sing(INIT_5H,300);
+	sing(INIT_6H,500);
+	sing(INIT_6H,300);
+	sing(INIT_6H,500);
+	sing(INIT_1H,300);
+	sing(INIT_2H,300);
+	
+	sing(INIT_3H,300);
+	sing(INIT_5H,500);
+	sing(INIT_5H,300);
+	sing(INIT_5H,300);
+	sing(INIT_5H,300);
+	sing(INIT_1H,500);
+	sing(INIT_2H,300);
+	
+	sing(INIT_2H,500);
+	sing(INIT_2H,300);
+	sing(INIT_3H,300);
+	sing(INIT_1H,300);
+	
+	sing(INIT_1H,500);
+	sing(INIT_1H,500);
+	sing(INIT_1H,300);
+	sing(INIT_1H,300);
+	sing(INIT_6,300);
+	sing(INIT_5,300);
+	
+	sing(INIT_5H,300);
+	sing(INIT_6H,500);
+	sing(INIT_6H,300);
+	sing(INIT_6H,500);
+	sing(INIT_1H,300);
+	sing(INIT_2H,300);
+	
+	sing(INIT_3H,300);
+	sing(INIT_5H,500);
+	sing(INIT_5H,300);
+	sing(INIT_5H,300);
+	sing(INIT_5H,300);
+	sing(INIT_1H,500);
+	sing(INIT_2H,300);
+	sing(INIT_2H,500);
+	
+	sing(INIT_1H,500);
+	sing(INIT_2H,500);
+	sing(INIT_3H,500);
+	sing(INIT_1H,500);
+	sing(INIT_2H,500);
+	sing(INIT_3H,500);
+	sing(INIT_5H,500);
+	sing(INIT_1H,500);
+	sing(INIT_2H,500);
+	sing(INIT_3H,500);
+	sing(INIT_1H,500);
+	sing(INIT_2H,500);
+	sing(INIT_3H,500);
+	sing(INIT_5H,500);
+	
+	sing(INIT_3,300);
+	sing(INIT_2,300);
+	sing(INIT_3,300);
+	sing(INIT_2,300);
+	sing(INIT_3,300);
+	sing(INIT_5,300);
+	sing(INIT_5,500);
+	
+	sing(INIT_5,500);
+	sing(INIT_5L,300);
+	
+	sing(INIT_1,400);
+	sing(INIT_2,300);
+	sing(INIT_2,500);
+	sing(INIT_1,300);
+	
+	sing(INIT_1,500);
+	sing(INIT_1,300);
+	
+	sing(INIT_1,300);
+	sing(INIT_2,300);
+	sing(INIT_3,300);
+	sing(INIT_1,300);
+	sing(INIT_1,500);
+	sing(INIT_6L,300);
+	
+	sing(INIT_1,300);
+	sing(INIT_2,300);
+	sing(INIT_3,300);
+	sing(INIT_1,300);
+	sing(INIT_1,500);
+	sing(INIT_6L,300);
+	
+	sing(INIT_2,900);
+	sing(INIT_3,300);
+	sing(INIT_3,900);
+	
+	sing(INIT_5L,300);
+	
+	sing(INIT_3,300);
+	sing(INIT_2,300);
+	sing(INIT_3,300);
+	sing(INIT_2,300);
+	sing(INIT_3,300);
+	sing(INIT_5,300);
+	sing(INIT_5,500);
+	
+	sing(INIT_5,500);
+	sing(INIT_5L,300);
+	
+	sing(INIT_1,400);
+	sing(INIT_2,300);
+	sing(INIT_2,500);
+	sing(INIT_1,300);
+	
+	sing(INIT_1,500);
+	sing(INIT_1,300);
+	
+	sing(INIT_1,300);
+	sing(INIT_2,300);
+	sing(INIT_3,300);
+	sing(INIT_1,300);
+	sing(INIT_1,500);
+	sing(INIT_6L,300);
+	
+	sing(INIT_2,300);
+	sing(INIT_2,300);
+	sing(INIT_3,300);
+	sing(INIT_1,300);
+	sing(INIT_1,500);
+	sing(INIT_6L,300);
+	
+	sing(INIT_5,500);
+	sing(INIT_3,300);
+	sing(INIT_3,500);
+	sing(INIT_3,300);
+	sing(INIT_4,300);
+	
+	sing(INIT_5,900);
+	sing(INIT_5,300);
+	sing(INIT_3H,300);
+	sing(INIT_2H,500);
+	
+	sing(INIT_1H,500);
+	sing(INIT_1H,500);
+	sing(INIT_1H,300);
+	sing(INIT_1H,300);
+	sing(INIT_6,300);
+	sing(INIT_5,300);
+	
+	sing(INIT_5H,300);
+	sing(INIT_6H,500);
+	sing(INIT_6H,300);
+	sing(INIT_6H,500);
+	sing(INIT_1H,300);
+	sing(INIT_2H,300);
+	
+	sing(INIT_3H,300);
+	sing(INIT_5H,500);
+	sing(INIT_5H,300);
+	sing(INIT_5H,300);
+	sing(INIT_5H,300);
+	sing(INIT_1H,500);
+	sing(INIT_2H,300);
+	
+	sing(INIT_2H,500);
+	sing(INIT_1H,500);
+	
+	sing(INIT_1H,500);
+	sing(INIT_1H,500);
+	sing(INIT_1H,300);
+	sing(INIT_1H,300);
+	sing(INIT_6,300);
+	sing(INIT_5,300);
+	
+	sing(INIT_5H,300);
+	sing(INIT_6H,500);
+	sing(INIT_6H,300);
+	sing(INIT_6H,500);
+	sing(INIT_1H,300);
+	sing(INIT_2H,300);
+	
+	sing(INIT_3H,300);
+	sing(INIT_5H,500);
+	sing(INIT_5H,300);
+	sing(INIT_5H,300);
+	sing(INIT_5H,300);
+	sing(INIT_3H,500);
+	sing(INIT_2H,300);
+	
+	sing(INIT_2H,900);
+	sing(INIT_3H,300);
+	sing(INIT_2H,500);
+	sing(INIT_1H,300);
+	
+	sing(INIT_1H,500);
+	sing(INIT_1H,500);
+	sing(INIT_1H,300);
+	sing(INIT_1H,300);
+	sing(INIT_6,300);
+	sing(INIT_5,300);
+	
+	sing(INIT_5H,300);
+	sing(INIT_6H,500);
+	sing(INIT_6H,300);
+	sing(INIT_6H,500);
+	sing(INIT_1H,300);
+	sing(INIT_2H,300);
+	
+	sing(INIT_3H,300);
+	sing(INIT_5H,500);
+	sing(INIT_5H,300);
+	sing(INIT_5H,300);
+	sing(INIT_5H,300);
+	sing(INIT_1H,500);
+	sing(INIT_2H,300);
+	
+	sing(INIT_2H,500);
+	sing(INIT_2H,300);
+	sing(INIT_3H,300);
+	sing(INIT_1H,300);
+	
+	sing(INIT_1H,500);
+	sing(INIT_1H,500);
+	sing(INIT_1H,300);
+	sing(INIT_1H,300);
+	sing(INIT_6,300);
+	sing(INIT_5,300);
+	
+	sing(INIT_5H,300);
+	sing(INIT_6H,500);
+	sing(INIT_6H,300);
+	sing(INIT_6H,500);
+	sing(INIT_1H,300);
+	sing(INIT_2H,300);
+	
+	sing(INIT_3H,300);
+	sing(INIT_5H,500);
+	sing(INIT_5H,300);
+	sing(INIT_5H,300);
+	sing(INIT_5H,300);
+	sing(INIT_1H,500);
+	sing(INIT_2H,300);
+	sing(INIT_2H,500);
+	
+	sing(INIT_5,300);
+	sing(INIT_3H,300);
+	sing(INIT_2H,500);
+	sing(INIT_1H,500);
+	sing(INIT_1H,500);
+	sing(INIT_1H,300);
+	sing(INIT_1H,300);
+	sing(INIT_6,300);
+	sing(INIT_5,300);
+	
+	sing(INIT_5H,300);
+	sing(INIT_6H,500);
+	sing(INIT_6H,300);
+	sing(INIT_6H,500);
+	sing(INIT_1H,300);
+	sing(INIT_2H,300);
+	
+	sing(INIT_3H,300);
+	sing(INIT_5H,500);
+	sing(INIT_5H,300);
+	sing(INIT_5H,300);
+	sing(INIT_5H,300);
+	sing(INIT_3H,500);
+	sing(INIT_2H,300);
+	
+	sing(INIT_2H,900);
+	sing(INIT_3H,300);
+	sing(INIT_2H,500);
+	sing(INIT_1H,300);
+	
+	sing(INIT_1H,500);
+	sing(INIT_1H,500);
+	sing(INIT_1H,300);
+	sing(INIT_1H,300);
+	sing(INIT_6,300);
+	sing(INIT_5,300);
+	
+	sing(INIT_5H,300);
+	sing(INIT_6H,500);
+	sing(INIT_6H,300);
+	sing(INIT_6H,500);
+	sing(INIT_1H,300);
+	sing(INIT_2H,300);
+	
+	sing(INIT_3H,300);
+	sing(INIT_5H,500);
+	sing(INIT_5H,300);
+	sing(INIT_5H,300);
+	sing(INIT_5H,300);
+	sing(INIT_1H,500);
+	sing(INIT_2H,300);
+	
+	sing(INIT_2H,500);
+	sing(INIT_2H,300);
+	sing(INIT_3H,300);
+	sing(INIT_1H,300);
+	
+	sing(INIT_1H,500);
+	sing(INIT_1H,500);
+	sing(INIT_1H,300);
+	sing(INIT_1H,300);
+	sing(INIT_6,300);
+	sing(INIT_5,300);
+	
+	sing(INIT_5H,300);
+	sing(INIT_6H,500);
+	sing(INIT_6H,300);
+	sing(INIT_6H,500);
+	sing(INIT_1H,300);
+	sing(INIT_2H,300);
+	
+	sing(INIT_3H,300);
+	sing(INIT_5H,500);
+	sing(INIT_5H,300);
+	sing(INIT_5H,300);
+	sing(INIT_5H,300);
+	sing(INIT_1H,500);
+	sing(INIT_2H,300);
+	sing(INIT_2H,500);
+	
+	sing(INIT_3,300);
+	sing(INIT_2,300);
+	sing(INIT_3,300);
+	sing(INIT_2,300);
+	sing(INIT_3,300);
+	sing(INIT_5,300);
+	sing(INIT_5,500);
+	
+	sing(INIT_5,500);
+	sing(INIT_5L,300);
+	
+	sing(INIT_1,400);
+	sing(INIT_2,300);
+	sing(INIT_2,500);
+	sing(INIT_1,300);
+	
+	sing(INIT_1,500);
+	sing(INIT_1,300);
+	
+	sing(INIT_1,300);
+	sing(INIT_2,300);
+	sing(INIT_3,300);
+	sing(INIT_1,300);
+	sing(INIT_1,500);
+	sing(INIT_6L,300);
+	
+	sing(INIT_1,300);
+	sing(INIT_2,300);
+	sing(INIT_3,300);
+	sing(INIT_1,300);
+	sing(INIT_1,500);
+	sing(INIT_6L,300);
+	
+	sing(INIT_2,900);
+	sing(INIT_3,300);
+	sing(INIT_3,900);
+	
 }
