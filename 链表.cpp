@@ -24,7 +24,7 @@ public:
 	~LinkedList();
 	LinkedList<T>* Locate(int pos);
 	void LinkInsert(T &a, int pos);
-	void Linkdelete(T a);
+	void LinkDelete(T &a,int pos);
 	void Linkchange(T a);
 	LinkedList<T> &operator =(const LinkedList<T> &a);
 };
@@ -75,10 +75,35 @@ LinkedList<T>* LinkedList<T>::Locate(int pos)
 {
 	int i = 0;
 	LNode<T>* temp = head;
+	if (pos < 0)
+		return NULL;
+	while (temp != NULL && i < pos)
+	{
+		temp = temp->next;
+		i++;
+	}
+	return temp;
 }
 
 template <class T>
 void LinkedList<T>::LinkInsert(T &a,int pos)
 {
-
+	LNode<T> *p = Locate(pos);
+	LNode<T> *temp = new LNode<T>(a);
+	temp->next = p->next;
+	p->next = temp;
 }
+
+template <class T>
+void LinkedList<T>::LinkDelete(T &a, int pos)
+{
+	LNode<T> *p = Locate(pos);
+	LNode<T> *temp = head;
+	while (temp->next != p)
+	{
+		temp = temp->next;
+	}
+	temp->next = p->next;
+	delete p;
+}
+
