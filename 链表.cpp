@@ -22,10 +22,11 @@ public:
 	LinkedList();
 	LinkedList(const LinkedList<T> &a);
 	~LinkedList();
+	void Clear();
 	LinkedList<T>* Locate(int pos);
 	void LinkInsert(T &a, int pos);
 	void LinkDelete(T &a,int pos);
-	void Linkchange(T a);
+	void Linkchange(T &a, int pos);
 	LinkedList<T> &operator =(const LinkedList<T> &a);
 };
 
@@ -55,7 +56,7 @@ LinkedList<T>::LinkedList(const LinkedList<T> &a)
 }
 
 template <class T>
-LinkedList<T>::~LinkedList()
+void LinkedList<T>::Clear()
 {
 	LNode<T>* temp = head;
 	while (head != NULL)
@@ -68,6 +69,12 @@ LinkedList<T>::~LinkedList()
 	tail = NULL;
 	cur = NULL;
 	size = 0;
+}
+
+template <class T>
+LinkedList<T>::~LinkedList()
+{
+	Clear();
 }
 
 template <class T>
@@ -92,6 +99,7 @@ void LinkedList<T>::LinkInsert(T &a,int pos)
 	LNode<T> *temp = new LNode<T>(a);
 	temp->next = p->next;
 	p->next = temp;
+	size++;
 }
 
 template <class T>
@@ -105,5 +113,33 @@ void LinkedList<T>::LinkDelete(T &a, int pos)
 	}
 	temp->next = p->next;
 	delete p;
+	size--;
 }
 
+template <class T>
+void LinkedList<T>::Linkchange(T &a, int pos)
+{
+	LNode<T> *p = Locate(pos);
+	p->data = a;
+}
+
+template <class T>
+LinkedList<T>& LinkedList<T>::operator =(const LinkedList<T> &a)
+{
+	int n = a.size;
+	clear();
+	head = new LNode<T>;
+	LNode<T> *temp1 = head;
+	LNode<T> *temp2 = a.head;
+	while (n--)
+	{
+		temp1->data = temp2->data;
+		temp1 = temp1->next;
+		temp2 = temp2->next;
+	}
+}
+
+int main()
+{
+	return 0;
+}
