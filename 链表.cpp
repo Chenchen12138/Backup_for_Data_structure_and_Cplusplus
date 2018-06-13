@@ -34,8 +34,8 @@ public:
 	void Clear();
 	LNode<T>* Locate(int pos);
 	void LinkInsert(const T &a, int pos);
-	void LinkDelete(T &a, int pos);
-	void Linkchange(T &a, int pos);
+	void LinkDelete(int pos);
+	void Linkchange(const T &a, int pos);
 	LinkedList<T> &operator =(const LinkedList<T> &a);
 	void Linkdisplay();
 };
@@ -128,7 +128,7 @@ void LinkedList<T>::LinkInsert(const T &a,int pos)
 }
 
 template <class T>
-void LinkedList<T>::LinkDelete(T &a, int pos)
+void LinkedList<T>::LinkDelete(int pos)
 {
 	LNode<T> *p = Locate(pos);
 	LNode<T> *temp = head;
@@ -142,7 +142,7 @@ void LinkedList<T>::LinkDelete(T &a, int pos)
 }
 
 template <class T>
-void LinkedList<T>::Linkchange(T &a, int pos)
+void LinkedList<T>::Linkchange(const T &a, int pos)
 {
 	LNode<T> *p = Locate(pos);
 	p->data = a;
@@ -153,15 +153,16 @@ LinkedList<T>& LinkedList<T>::operator =(const LinkedList<T> &a)
 {
 	int n = a.size;
 	Clear();
-	head = new LNode<T>;
+	head = new LNode<T>(a.head->data);
 	LNode<T> *temp1 = head;
 	LNode<T> *temp2 = a.head;
-	while (n--)
+	for (int i = 0; i<n; i++)
 	{
-		temp1->data = temp2->data;
-		temp1 = temp1->next;
 		temp2 = temp2->next;
+		LinkInsert(temp2->data, i);
+
 	}
+	return *this;
 }
 
 template <class T>
@@ -177,6 +178,7 @@ void LinkedList<T>::Linkdisplay()
 
 int main()
 {
+	//默认构造函数和插入
 	LinkedList<int> l1;
 	for (int i = 0; i < 15; i++)
 	{
@@ -184,8 +186,34 @@ int main()
 	}
 	l1.Linkdisplay();
 	cout << endl;
+
+	//拷贝构造函数
 	LinkedList<int> l2(l1);
 	l2.Linkdisplay();
+	cout << endl;
+
+	//重载=
+	LinkedList<int> l3;
+	for (int i = 0; i < 15; i++)
+	{
+		l3.LinkInsert(rand(), 0);
+	}
+	l3.Linkdisplay();
+	cout << endl;
+	l3 = l1;
+	l3.Linkdisplay();
+	cout << endl;
+
+	//删除节点
+	l1.LinkDelete(3);
+	l1.Linkdisplay();
+	cout << endl;
+
+	//访问和修改节点
+	l1.Linkchange(555, 5);
+	l1.Linkdisplay();
+	cout << endl;
+
 	cin.get();
 	return 0;
 }
